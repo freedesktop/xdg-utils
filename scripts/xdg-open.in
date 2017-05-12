@@ -447,6 +447,29 @@ open_lxde()
     fi
 }
 
+open_lxqt()
+{
+    # pcmanfm-qt only knows how to handle file:// urls and filepaths, it seems.
+    if is_file_url_or_path "$1"; then
+        local file="$(file_url_to_path "$1")"
+
+        # handle relative paths
+        if ! echo "$file" | grep -q ^/; then
+            file="$(pwd)/$file"
+        fi
+
+        pcmanfm-qt "$file"
+    else
+        open_generic "$1"
+    fi
+
+    if [ $? -eq 0 ]; then
+        exit_success
+    else
+        exit_failure_operation_failed
+    fi
+}
+
 [ x"$1" != x"" ] || exit_failure_syntax
 
 url=
@@ -511,8 +534,12 @@ case "$DE" in
     open_xfce "$url"
     ;;
 
-    lxde|lxqt)
+    lxde)
     open_lxde "$url"
+    ;;
+
+    lxqt)
+    open_lxqt "$url"
     ;;
 
     enlightenment)

@@ -62,9 +62,9 @@ desktop_file_to_binary()
         if [ "${desktop#*-}" != "$desktop" ]; then
             vendor=${desktop%-*}
             app=${desktop#*-}
-            if [ -r $dir/applications/$vendor/$app ]; then
+            if [ -r "$dir/applications/$vendor/$app" ]; then
                 file_path=$dir/applications/$vendor/$app
-            elif [ -r $dir/applnk/$vendor/$app ]; then
+            elif [ -r "$dir/applnk/$vendor/$app" ]; then
                 file_path=$dir/applnk/$vendor/$app
             fi
         fi

@@ -231,6 +231,20 @@ open_enlightenment()
     fi
 }
 
+open_lumina()
+{
+    if lumina-open 2>/dev/null 1>&2; then
+        lumina-open "$1"
+    else
+        open_generic "$1"
+    fi
+
+    if [ $? -eq 0 ]; then
+        exit_success
+    else
+        exit_failure_operation_failed
+    fi
+}
 open_flatpak()
 {
     gdbus call --session \
@@ -526,6 +540,10 @@ case "$DE" in
 
     enlightenment)
     open_enlightenment "$url"
+    ;;
+
+    lumina)
+    open_lumina "$url"
     ;;
 
     cygwin)

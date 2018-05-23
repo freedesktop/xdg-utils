@@ -451,7 +451,7 @@ open_lxde()
 {
 
     # pcmanfm only knows how to handle file:// urls and filepaths, it seems.
-    if pcmanfm --help >/dev/null 2>&1 -a is_file_url_or_path "$1"; then
+    if ([ -x /usr/bin/pcmanfm ]  && is_file_url_or_path "$1" ); then
         local file="$(file_url_to_path "$1")"
 
         # handle relative paths

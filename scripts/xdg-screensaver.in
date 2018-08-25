@@ -887,6 +887,8 @@ xscreensaver-command -version 2> /dev/null | grep XScreenSaver > /dev/null && DE
 dbus-send --print-reply --dest=org.freedesktop.DBus /org/freedesktop/DBus org.freedesktop.DBus.GetNameOwner string:org.gnome.ScreenSaver > /dev/null 2>&1 && DE="gnome_screensaver"
 # Consider "mate-screensaver" a separate DE
 dbus-send --print-reply --dest=org.freedesktop.DBus /org/freedesktop/DBus org.freedesktop.DBus.GetNameOwner string:org.mate.ScreenSaver > /dev/null 2>&1 && DE="mate_screensaver"
+# Consider "cinnamon-screensaver" a separate DE
+dbus-send --print-reply --dest=org.freedesktop.DBus /org/freedesktop/DBus org.freedesktop.DBus.GetNameOwner string:org.cinnamon.ScreenSaver > /dev/null 2>&1 && DE="cinnamon"
 # Consider "xautolock" a separate DE
 xautolock -enable > /dev/null 2>&1 && DE="xautolock_screensaver"
 

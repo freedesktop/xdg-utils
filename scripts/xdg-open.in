@@ -391,7 +391,7 @@ open_envvar()
             # URIs don't have IFS characters spaces anyway.
             has_single_argument $1 && $(printf "$browser" "$1")
         else
-            $browser "$1"
+            "$browser" "$1"
         fi
 
         if [ $? -eq 0 ]; then

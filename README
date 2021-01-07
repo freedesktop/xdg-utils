@@ -64,7 +64,7 @@ USE:
 of the operating system, we recommend that you package the scripts
 that your application needs along with your product as a fallback. For
 this purpose please obtain the original version of the xdg-utils from
-http://portland.freedesktop.org. The xdg-utils scripts that are
+[freedesktop.org](https://www.freedesktop.org/wiki/Software/xdg-utils/). The xdg-utils scripts that are
 distributed by operating systems vendors may have been tuned for their
 particular operating system and may not work on the same broad variety
 of operating systems as the original version.
